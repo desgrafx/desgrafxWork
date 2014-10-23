@@ -1,0 +1,134 @@
+﻿/*Non-Resposive Setup Start*/
+
+/* Template-specific stuff
+ *
+ * Customizations just for the template; these are not necessary for anything
+ * with disabling the responsiveness.
+ */
+
+/* Account for fixed navbar */
+* {
+ -webkit-box-sizing: inherit;
+ -moz-box-sizing: inherit;
+box-sizing: inherit;
+}
+#mainArea {
+  height:auto;
+  padding-bottom: 15px;
+}
+
+.col-12 {
+  position:relative;
+  clear:both;
+}
+
+
+.col-12w {
+  width: 960px;
+  margin:0 auto;
+}
+.col-3 {
+  width: 268px;
+  margin-right: 25px;
+  padding-left: 0px;
+padding-right: 35px;
+
+  }
+.nopad {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.m {
+  margin:15px 7px;
+}
+.mt {
+  margin-top:15px;
+}
+/*Non-responsive Setup End*/
+
+strong {
+	font-family: sans-serif;			
+}
+
+.DGDCMain {
+  color:#474747;
+  font-family: sans-serif;
+  font-size: 16px;
+}
+.headertext {
+  margin:25px auto;
+  font-weight: 300;
+  font-size:17px;
+}
+.headertext a {
+  color:#2da7ea;
+  text-decoration: underline;
+  font-size:17px;
+}
+.form-col {
+  background-image: url(images/dgdc_col_bkgrd.jpg);
+  background-repeat: repeat-x;
+  color:#474747;
+}
+.form-col label {
+  color:#474747;
+  font-size: 90%;
+  font-weight: 300;
+  margin-top:10px;
+}
+.input-sm {
+height: 20px;
+padding: 5px 10px;
+font-size: 12px;
+line-height: 1.25;
+border-radius: 3px;
+}
+.form-col:first-child, .form-col:last-child {
+  
+}
+.form-col p {
+  margin-top: 20px;
+  margin-bottom: 0px;
+  font-size:0.865em;
+}
+.form-col hr {
+  margin-top: 0px;
+  margin-bottom: 10px;
+  border: 0;
+  border-top: 1px solid dimgrey;
+}
+#formSubmit2 {
+  padding-top:170px;
+  clear: both;
+}
+
+#formSubmit {
+  padding-top:50px;
+  clear: both;
+}
+  #formSubmit span , #formSubmit2 span{
+    clear: both;
+    float: right;
+    margin-top: 15px;
+    width: 100%;
+    text-align: right;
+  }
+  #formSubmit button, #formSubmit2 button{
+    border:none;
+    background:white;
+  }
+  #formSubmit :focus, #formSubmit2 :focus {
+  outline: -webkit-focus-ring-color auto 0px;
+  }
+
+.footerFormText {
+  margin-top: 35px;
+}
+
+.help-block {
+  font-size: 14px;
+}
+
+.form-group {
+	margin-bottom: 5px;
+}

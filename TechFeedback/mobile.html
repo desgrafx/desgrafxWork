@@ -1,0 +1,330 @@
+ <style>
+    /* Finesse the page header spacing */
+    
+    .page-header {
+        margin-bottom: 30px;
+    }
+    .page-header .lead {
+        margin-bottom: 10px;
+    }
+    #ng-app {
+        color: #474747;
+        font-family: sans-serif;
+        font-size: 16px;
+        text-align: left;
+    }
+    .headertext hr {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border: 0;
+        border-top: 1px solid dimgrey;
+    }
+    .headertext {
+        font-weight: 300;
+        font-size: 14px;
+    }
+    .headertext a {
+        color: #2da7ea;
+        text-decoration: underline;
+    }
+    .form-col {
+        background-image: url(http://www2.dollargeneral.com/ads-and-promos/coupons/pages/images/dgdc_col_bkgrd.jpg);
+        background-repeat: repeat-x;
+        color: #474747;
+        margin-bottom: 20px;
+    }
+    .form-col label {
+        color: #474747;
+        font-size: 90%;
+        font-weight: 300;
+        margin-top: 15px;
+    }
+    /*.form-col:first-child, .form-col:last-child {margin:15px 0px;}*/
+    
+    .form-col p {
+        margin-top: 20px;
+        margin-bottom: 0px;
+        font-size: 0.865em;
+    }
+    .form-col hr {
+        margin-top: 0px;
+        margin-bottom: 10px;
+        border: 0;
+        border-top: 1px solid dimgrey;
+    }
+    #formSubmit {
+        padding-top: 50px;
+        clear: both;
+    }
+    #formSubmit span {
+        clear: both;
+        float: right;
+        margin-top: 15px;
+    }
+    #formSubmit button {
+        border: none;
+        background: white;
+    }
+    #formSubmit:focus {
+        outline: -webkit-focus-ring-color auto 0px;
+    }
+    .footerFormText {
+        margin-top: 25px;
+    }
+    .help-block {
+        font-size: 12px;
+    }
+    .m {
+	  margin:15px 5px;
+	}
+	.mt {
+	  margin-top:15px;
+	}
+    </style>
+    <!-- Bootstrap CSS -->
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="http://www2.dollargeneral.com/Corporate-Information/pages/css/ui-lightness/jquery-ui-1.9.2.custom.css">
+    <!-- <link href="dgdcForm.css" rel="stylesheet" media="screen"> -->
+    <!-- jQuery -->
+    <script src="http://dg.purered.net/Scripts/jquery-1.8.2.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+    <script src="http://dg.gaprc.org/dgScripts/dgdcForm.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <!-- Angular -->
+    <div id="ng-app" class="DGDCMain container col-xs-12 nopad ng-scope" ng-app="formApp" ng-controller="formController">
+        <div class="row headertext" ng-show="myView">
+            <div class="col-xs-12" style="background:#f1f1f1;color:black;height:35px;font-weight:bold;margin-top:5px;margin-bottom:5px;">
+                <p style="margin-top:5px;margin-bottom:5px;">Technical Feedback</p>
+                <hr>
+            </div>
+            <div class="col-xs-12">
+                <p>Please use the form below to report any technical concerns or feedback with Dollar General Digital Coupons. This form is for technical feedback, if you have a <a data-ajax="false" href="http://www2.dollargeneral.com/Customer-Care-Center/pages/contact-us.aspx">Customer Service Concern please click here</a> to provide that feedback.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 ">
+                <form class="formControl ng-pristine ng-invalid ng-invalid-required" ng-submit="processForm()" novalidate="" ng-show="myView">
+                    <div class="col-xs-12 form-col">
+                        <div class="col-xs-12 ">
+                            <p>
+                                <strong>Information</strong>
+                            </p>
+                            <hr>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12" ng-class="{ 'has-error' : errorIssueTitle }">
+                                <label class="control-label"><sup>*</sup>Short Description</label>
+                                <input data-role="none" name="" id="issueTitle" class="form-control input-sm col-sm-12 ng-pristine ng-invalid ng-invalid-required" value="" required="required" pattern="" ng-model="formData.issueTitle" title="" type="text">
+                                <span class="help-block ng-binding ng-hide" ng-show="errorIssueTitle"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <label for="summary">Summary</label>
+                                <textarea class="form-control input-sm ng-pristine ng-valid" maxlength="1000" rows="7" id="summary" ng-model="formData.summary"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12" ng-class="{ 'has-error' : errorInputIssueDate }">
+                                <label class="control-label"><sup>*</sup>Date</label>
+                                <input data-role="none" name="issueDate" id="issueDate" class="form-control ng-pristine ng-invalid ng-invalid-required hasDatepicker" value="" required="required" ng-model="formData.inputIssueDate" title="" type="text">
+                                <span class="help-block ng-binding ng-hide" ng-show="errorInputIssueDate"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12" ng-class="{ 'has-error' : errorName }">
+                                <label class="control-label" for="name"><sup>*</sup>Name</label>
+                                <input data-role="none" name="" id="name" class="form-control input-sm col-sm-12 ng-pristine ng-invalid ng-invalid-required" value="" required="required" pattern="" ng-model="formData.name" title="" type="text">
+                                <span class="help-block ng-binding ng-hide" ng-show="errorName"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-9" ng-class="{ 'has-error' : errorZip }">
+                                <label class="control-label" for="zip"><sup>*</sup>Zip Code</label>
+                                <input data-role="none" name="" id="zip" class="form-control input-sm col-sm-12 ng-pristine ng-invalid ng-invalid-required" value="" maxlength="5" required="required" pattern="\d*" ng-model="formData.zip" title="" type="text">
+                                <span class="help-block ng-binding ng-hide" ng-show="errorZip"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12" ng-class="{ 'has-error' : errorAcctEmail }">
+                                <label class="control-label" for="acctEmail"><sup>*</sup>Account Email</label>
+                                <input data-role="none" name="" id="acctEmail" class="form-control input-sm col-sm-12 ng-pristine ng-invalid ng-invalid-required ng-valid-email" value="" required="required" pattern="" ng-model="formData.acctEmail" title="" type="email">
+                                <span class="help-block ng-binding ng-hide" ng-show="errorAcctEmail"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12" ng-class="{ 'has-error' : errorPhonenumber }">
+                                <label class="control-label" for="phonenumber"><sup>*</sup>Account Phone Number</label>
+                                <input data-role="none" name="" id="phonenumber" class="form-control input-sm ng-pristine ng-invalid ng-invalid-required" value="" maxlength="10" required="required" ng-model="formData.phonenumber" title="" type="tel">
+                                <span class="help-block ng-binding ng-hide" ng-show="errorPhonenumber"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 form-col">
+                        <div class="col-xs-12 ">
+                            <p>
+                                <strong>Store Information</strong>
+                            </p>
+                            <hr>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-9">
+                                <label for="state" class=" control-label">State</label>
+                                <select data-role="none" name="" id="state" class="form-control input-sm col-sm-12 ng-pristine ng-invalid ng-invalid-required" required="required" ng-model="formData.state">
+                                    <option value="? undefined:undefined ?"></option>
+                                    <option value="AL">AL</option>
+                                    <option value="AK">AK</option>
+                                    <option value="AZ">AZ</option>
+                                    <option value="AR">AR</option>
+                                    <option value="CA">CA</option>
+                                    <option value="CO">CO</option>
+                                    <option value="CT">CT</option>
+                                    <option value="DE">DE</option>
+                                    <option value="DC">DC</option>
+                                    <option value="FL">FL</option>
+                                    <option value="GA">GA</option>
+                                    <option value="HI">HI</option>
+                                    <option value="ID">ID</option>
+                                    <option value="IL">IL</option>
+                                    <option value="IN">IN</option>
+                                    <option value="IA">IA</option>
+                                    <option value="KS">KS</option>
+                                    <option value="KY">KY</option>
+                                    <option value="LA">LA</option>
+                                    <option value="ME">ME</option>
+                                    <option value="MD">MD</option>
+                                    <option value="MA">MA</option>
+                                    <option value="MI">MI</option>
+                                    <option value="MN">MN</option>
+                                    <option value="MS">MS</option>
+                                    <option value="MO">MO</option>
+                                    <option value="MT">MT</option>
+                                    <option value="NE">NE</option>
+                                    <option value="NV">NV</option>
+                                    <option value="NH">NH</option>
+                                    <option value="NJ">NJ</option>
+                                    <option value="NM">NM</option>
+                                    <option value="NY">NY</option>
+                                    <option value="NC">NC</option>
+                                    <option value="ND">ND</option>
+                                    <option value="OH">OH</option>
+                                    <option value="OK">OK</option>
+                                    <option value="OR">OR</option>
+                                    <option value="PA">PA</option>
+                                    <option value="RI">RI</option>
+                                    <option value="SC">SC</option>
+                                    <option value="SD">SD</option>
+                                    <option value="TN">TN</option>
+                                    <option value="TX">TX</option>
+                                    <option value="UT">UT</option>
+                                    <option value="VT">VT</option>
+                                    <option value="VA">VA</option>
+                                    <option value="WA">WA</option>
+                                    <option value="WV">WV</option>
+                                    <option value="WI">WI</option>
+                                    <option value="WY">WY</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-12">
+                                <label for="city">City</label>
+                                <input data-role="none" name="" id="city" class="form-control input-sm col-sm-12 ng-pristine ng-valid" value="" pattern="" ng-model="formData.city" title="" type="text">
+                                <span class="help-block"></span>
+                            </div>
+                            <div class="col-sm-12">
+                                <label for="street">Street</label>
+                                <input data-role="none" name="" id="street" class="form-control input-sm col-sm-12 ng-pristine ng-valid" value="" pattern="" ng-model="formData.street" title="" type="text">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="col-xs-12  form-col">
+                              <div class="col-sm-12 receipt">
+                            	<div class="col-sm-12">
+	                                <p>
+	                                    <strong>Transaction/Receipt Information</strong>
+	                                </p>
+	                                <hr>
+	                                <p>If you are reporting a store based transaction issue, please fill in your recipt number below, so we can better help you.</p>
+	                                <p>Transaction Number (<a modal image >what's this?</a>)</p>
+                            	</div>
+                            	<div class="col-sm-12 form-group">
+                            		<div class="row">
+	                            		<div class="col-xs-12">
+	                            			<input type="text" pattern="[0-9]*" id="tr1" name="tr1" maxlength="5" class="col-xs-4 n mt input-sm">
+	                            			<input type="text" pattern="[0-9]*" id="tr2" name="tr2" maxlength="2" class="col-xs-3 m input-sm">
+	                            			<input type="text" pattern="[0-9]*" id="tr3" name="tr3" maxlength="4" class="col-xs-4 mt input-sm">
+	                        			</div>
+                            		</div>
+                            	</div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12  form-col">
+                        <div class="col-xs-12 ">
+                            <p>
+                                <strong>System Information</strong>
+                            </p>
+                            <hr>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <label for="device" class="control-label">Type of Device</label>
+                                <select data-role="none" name="" id="device" class="form-control input-sm col-sm-12  ng-pristine ng-invalid ng-invalid-required" required="required" ng-model="formData.device">
+                                    <option value="? undefined:undefined ?"></option>
+                                    <option value="Desktop/Laptop">Desktop/Laptop</option>
+                                    <option value="Tablet">Tablet</option>
+                                    <option value="Mobile Phone ">Mobile Phone</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-12">
+                                <label for="operatingSystem">Operating System</label>
+                                <input data-role="none" name="" id="operatingSystem" class="form-control input-sm col-sm-12 ng-pristine ng-valid" value="" pattern="" ng-model="formData.operatingSystem" title="" type="text">
+                                <span class="help-block"></span>
+                            </div>
+                            <div class="col-sm-12">
+                                <label for="systemVersion">Operating System Version</label>
+                                <input data-role="none" name="" id="systemVersion" class="form-control input-sm col-sm-12 ng-pristine ng-valid" value="" pattern="" ng-model="formData.systemVersion" title="" type="text">
+                                <span class="help-block"></span>
+                            </div>
+                            <div class="col-sm-12">
+                                <label for="browser">Browser</label>
+                                <input data-role="none" name="" id="browser" class="form-control input-sm col-sm-12 ng-pristine ng-valid" value="" pattern="" ng-model="formData.browser" title="" type="text">
+                                <span class="help-block"></span>
+                            </div>
+                            <div class="col-sm-12">
+                                <label for="browserVersion">Browser Version</label>
+                                <input data-role="none" name="" id="browserVersion" class="form-control input-sm col-sm-12 ng-pristine ng-valid" value="" pattern="" ng-model="formData.browserVersion" title="" type="text">
+                                <span class="help-block"></span>
+                            </div>
+                            <div id="formSubmit">
+                                <div class="col-sm-12">
+                                    <button type="submit" id="submit-btn" class="next-btn pull-right">
+                                        <img src="http://www2.dollargeneral.com/ads-and-promos/coupons/pages/images/submit.jpg" style="display: none !important;">
+                                    </button>
+                                    <span>
+                                        <strong><sup>*</sup>Indicates required field</strong>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div id="messages" class="alert alert-success ng-binding ng-hide" ng-show="message"></div>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $("#issueDate").datepicker();
+    });
+    jQuery(document).ready(function() {
+        jQuery("input").click(function() {
+            jQuery(this).parent("div").removeClass('has-error');
+        });
+    });
+    </script>
+
