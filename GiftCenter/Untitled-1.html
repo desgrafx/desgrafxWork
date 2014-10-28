@@ -1,0 +1,98 @@
+<script src="jquery.js"></script>
+<link rel="stylesheet" href="css/style.css">
+
+<table align="center" width="960" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td>
+			<img src="images/gcHeader.jpg" width="960" height="128" alt=""></td>
+	</tr>
+</table>
+
+<div id="headerTabs">
+	<ul class="tabNav">
+		<li class="gcGG activeTab"><img src="images/gcGG.jpg" width="320" height="56" alt=""></li>
+		<li class="gcFI"><img src="images/gcFI.jpg" width="320" height="56" alt=""></li>
+		<li class="gcMS"><img src="images/gcMS.jpg" width="320" height="56" alt=""></li>
+	</ul>
+</div>
+
+<table id="navMain" align="center" width="960" border="0" cellpadding="0" cellspacing="0">
+
+	<tr>
+		<td>
+			<a href="#" class="1"><img src="images/gcnavKH.jpg" width="87" height="53" alt=""></a></td>
+		<td>
+			<a href="#" class="2"><img src="images/gcnavTE.jpg" width="88" height="53" alt=""></a></td>
+		<td>
+			<a href="#" class="3"><img src="images/gcnavBatt.jpg" width="87" height="53" alt=""></a></td>
+		<td colspan="2">
+			<a href="#" class="4"><img src="images/gcnavGUT.jpg" width="87" height="53" alt=""></a></td>
+		<td>
+			<a href="#" class="5"><img src="images/gcnavGFHm.jpg" width="87" height="53" alt=""></a></td>
+		<td>
+			<a href="#" class="6"><img src="images/gcnavGFHr.jpg" width="88" height="53" alt=""></a></td>
+		<td>
+			<a href="#" class="7"><img src="images/gcnavGFp.jpg" width="87" height="53" alt=""></a></td>
+		<td colspan="2">
+			<a href="#" class="8"><img src="images/gcnavSS.jpg" width="87" height="53" alt=""></a></td>
+		<td>
+			<a href="#" class="9"><img src="images/gcnavHC.jpg" width="87" height="53" alt=""></a></td>
+		<td>
+			<a href="#" class="10"><img src="images/gcnavGCGW.jpg" width="88" height="53" alt=""></a></td>
+		<td>
+			<a href="#" class="11"><img src="images/gcnavGC.jpg" width="87" height="53" alt=""></a></td>
+	</tr>
+</table>
+
+
+<div class="sliderMain">
+	<ul class="sliderFrame">
+		<li class="active-img" data-num="1"><img src="images/slides.jpg" width="960" height="551" alt=""></li>
+		<li data-num="2"><img src="images/slides.jpg" width="960" height="551" alt=""></li>
+		<li data-num="3"><img src="images/slides.jpg" width="960" height="551" alt=""></li>
+		<li data-num="4"><img src="images/slides.jpg" width="960" height="551" alt=""></li>
+		<li data-num="5"><img src="images/slides.jpg" width="960" height="551" alt=""></li>
+		<li data-num="6"><img src="images/slides.jpg" width="960" height="551" alt=""></li>
+		<li data-num="7"><img src="images/slides.jpg" width="960" height="551" alt=""></li>
+		<li data-num="8"><img src="images/slides.jpg" width="960" height="551" alt=""></li>
+		<li data-num="9"><img src="images/slides.jpg" width="960" height="551" alt=""></li>
+		<li data-num="10"><img src="images/slides.jpg" width="960" height="551" alt=""></li>
+		<li data-num="11"><img src="images/slides.jpg" width="960" height="551" alt=""></li>
+	</ul>
+</div>
+
+<table align="center" width="960" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td>
+			<img src="images/gcHolidayGifts.jpg" width="960" height="314" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="images/gcEM_Pin.jpg" width="960" height="239" alt=""></td>
+	</tr>
+	<tr>
+		<td>
+			<img src="images/gcBttmLinks.jpg" width="960" height="245" alt=""></td>
+	</tr>
+</table>
+<script>
+	$(function() {
+		$('#navMain a').on('click', function(event) {
+			event.preventDefault();
+
+			var whatA = $(this).attr('class');
+			console.log(whatA);
+			/* Act on the event */
+		});
+		$('ul.tabNav li').on('click', function(event) {
+			event.preventDefault();
+			/* Act on the event */
+			if ($(this).hasClass('activeTab')) {
+				$(this).removeClass('activeTab');
+			}else {
+				$('ul.tabNav li').removeClass('activeTab');
+				$(this).addClass('activeTab');
+			}
+		});
+	});
+</script>
